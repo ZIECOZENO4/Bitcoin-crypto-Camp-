@@ -1,19 +1,11 @@
-
-
-import { Post } from '@/app/lib/interface';
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
 import React from 'react'
-const Post =  () =>{
+
+function Post() {
   return (
     <div>
-      <Header />
-      <div className=' py-20'>
-  
-      </div>
-      <Footer />
+      am post page
     </div>
   )
 }
 
-export default Post;
+export default Post
