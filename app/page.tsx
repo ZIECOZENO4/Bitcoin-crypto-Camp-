@@ -131,14 +131,14 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto h-60 relative ">
           <BannerBottom />
         </div>
-        <div className="max-w-7xl mx-auto py-20 pb-10 px-4">
+        <div className="max-w-7xl mx-auto py-20 pb-10 px-4 flex justify-between  px-4 ">
 
-        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 py-6 px-4'>
+        <div className='max-w-7xl mx-auto mt-[50px] align-middle md:m-5  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 py-6 px-4'>
 
       {
         data.map((post) => (
 
-          <div key={post._id}>
+          <div key={post._id} className=' mb-[400px]'>
           {/* <h2>{post.title}</h2>
           <h2>{post.description}</h2> */}
       <Link key={post._id} href={`/post/${post.slug.current}`}>

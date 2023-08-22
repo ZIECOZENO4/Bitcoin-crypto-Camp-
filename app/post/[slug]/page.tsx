@@ -110,7 +110,7 @@ serializers={{
   </div>
   </article>
   <hr className=' max-w-lg my-5 mx-auto border-[1px] border-secondaryColor' />
-  <div>
+  <div className='p-[8px]'>
     <p className='text-xs text-secondaryColor uppercase font-bold font-titleFont'>
       Was It Helpful ?   
     </p>

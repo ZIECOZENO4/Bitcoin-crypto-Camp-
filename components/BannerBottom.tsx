@@ -11,7 +11,7 @@ const BannerBottom = () => {
           Our Daily Motivation
         </p>
         <h3 className="font-bold text-xl md:text-3xl">
-          Those who make it in crypto world, are those who invest what have and enjoy the rest. Don&apost be left out come let&aposs help you, so you can help others.
+          Those who make it in crypto world, are those who invest what have and enjoy the rest. Don&apos;t be left out come let&apos;s help you, so you can help others.
         </h3>
         <p className="text-xs text-white/50">Zieco Zeno / 1 week ago</p>
       </div>
