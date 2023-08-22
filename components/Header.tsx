@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logoDark from "../public/images/logoDark.png";
+import logoDark from "../public/images/CRYPTO.png";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <div className="max-w-7xl h-full mx-auto flex justify-between items-center">
         <Link href="/">
           <div>
-            <Image width={80} height={80} src={logoDark} alt="logoDark" />
+            <Image width={80} height={80} src={logoDark} alt="logoDark" className=" rounded-full p-2" />
           </div>
         </Link>
         <div>
@@ -24,7 +24,7 @@ const Header = () => {
           <div className="flex items-center gap-1">
             <img
               className="w-8 h-8 rounded-full"
-              src="https://www.noormohammad.live/static/media/roundedProfile.477a194221d255c8ce26.png"
+              src="https://i.pinimg.com/originals/b8/91/9d/b8919d044e3e0e94087ed0b26d535904.jpg"
               alt="logo"
             />
             <p className="text-sm font-medium">Hello Stranger!</p>

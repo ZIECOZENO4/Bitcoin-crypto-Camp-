@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import bannerImgOne from "../public/images/bannerImgOne.jpg";
+import bannerImgOne from "../public/images/head 1.png";
 import bannerImgTwo from "../public/images/bannerImgTwo.jpg";
 import bannerImgThree from "../public/images/bannerImgThree.jpg";
 import bannerImgFour from "../public/images/bannerImgFour.jpg";
