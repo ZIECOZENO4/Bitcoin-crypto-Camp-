@@ -5,11 +5,20 @@ import { Post } from "@/app/lib/interface";
 import { client, urlFor } from "@/app/lib/sanity";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PortableText from "react-portable-text"
-import { Children } from "react";
+import PortableText from "react-portable-text"   
+import { useForm, SubmitHandler } from "react-hook-form"
 
+
+type Inputs ={
+  _id: string;
+  name:string;
+  email:string;
+  comment:string;
+}
 
 async function getData(slug: string) {
+
+
   const query = `*[_type == 'post' && slug.current == '${slug}'][0]{
     _id,
     publishedAt,
@@ -30,8 +39,29 @@ return data;
 
 }
 
+
 export default async function SlugPost({params}:{params:{slug: string}}){
-  
+  const [submitted, setSubmitted] = useState(false);
+    const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+const onSubmit : SubmitHandler<Inputs> = (data) => {
+  fetch('/api/createComment.tsx', {
+    method: "POST",
+    body: JSON.stringify(data),
+  }).then(() => {
+    setSubmitted(true)
+    console.log('successful');
+    
+  }).catch((err) => {
+    setSubmitted(false);
+    console.log('not successful');
+    
+  })
+};
 const [isClient, setIsClient] = useState(false);
 useEffect(() => {
 setIsClient(true);
@@ -86,18 +116,29 @@ serializers={{
     </p>
 <h3 className='font-titleFont text-3xl font-bold'>Leave a  <span>Comment</span> below!!!</h3>
     <hr className='py-5 mt-2'/>
-    <form className='mt-8 flex flex-col gap-6'>
+    <input {...register("_id")} 
+    type='hidden'
+    name='_id'
+    value={data._id}
+    />
+    <form onSubmit={handleSubmit(onSubmit)} className='mt-8 flex flex-col gap-6'>
       <label className='flex flex-col'>
         <span className='font-titlefont font-semibold text-base'>Name</span>
-     <input className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Enter your name' type='text' />
+     <input
+     {...(register('name'), {required: true})}
+     className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Enter your name' type='text' />
       </label>
       <label className='flex flex-col'>
         <span className='font-titlefont font-semibold text-base'>Email</span>
-     <input className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Enter your email' type='email' />
+     <input 
+          {...(register('email'), {required: true})}
+     className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Enter your email' type='email' />
       </label>
       <label className='flex flex-col'>
         <span className='font-titlefont font-semibold text-base'>Comment</span>
-     <textarea className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Drop your comment, it will be helpful to the community.'  rows={8} />
+     <textarea 
+          {...(register('comment'), {required: true})}
+     className='txet-base placeholder:text-sm border-b-[1px] border-secondaryColor py-1 px-4 outline-none focus-within:shadow-xl shadow-secondaryColor'placeholder='Drop your comment, it will be helpful to the community.'  rows={8} />
       </label>
       <button className='w-full bg-bgColor text-blue-200 text-base font-ttilefont font-semibold tracking-wider uppercase py-2 rounded-sm hover:bg-secondaryColor duration-300' type='submit'>Click to submit</button>
     </form>

@@ -109,7 +109,7 @@ export default async function Home() {
         },
         description,
         mainImage,
-        slug,
+        slug
     }`;
      const data = await client.fetch(query);
      return data;

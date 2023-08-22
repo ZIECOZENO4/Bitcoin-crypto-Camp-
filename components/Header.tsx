@@ -13,11 +13,11 @@ const Header = () => {
         </Link>
         <div>
           <ul className="hidden lg:inline-flex gap-8 uppercase text-sm font-semibold">
-            <li className="headerLi">Home</li>
-            <li className="headerLi">Posts</li>
-            <li className="headerLi">Pages</li>
-            <li className="headerLi">Features</li>
-            <li className="headerLi">Contact</li>
+          <Link href='/'><li className="headerLi">Home</li></Link>  
+          <Link href='/'><li className="headerLi">Posts</li></Link>  
+          <Link href='/'><li className="headerLi">Comments</li></Link>  
+          <Link href='/'><li className="headerLi">Pricing</li></Link>  
+          <Link href='/'><li className="headerLi">Contact</li></Link>  
           </ul>
         </div>
         <div className="flex items-center gap-8 text-lg">
