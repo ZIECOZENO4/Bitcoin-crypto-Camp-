@@ -138,7 +138,7 @@ export default async function Home() {
       {
         data.map((post) => (
 
-          <div key={post._id} className=' mb-[400px]'>
+          <div key={post._id} className=' mb-[100px]'>
           {/* <h2>{post.title}</h2>
           <h2>{post.description}</h2> */}
       <Link key={post._id} href={`/post/${post.slug.current}`}>
